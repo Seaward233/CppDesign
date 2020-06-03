@@ -22,18 +22,39 @@ void DoUser::init()
 	//tu.grade=1;
 	//vuser.push_back(tu);
 	User tu;
-	ifstream fin("user.txt");
-	if (!fin)
+	ifstream ftouch("user.txt");
+	if (!ftouch)
 	{
-		cerr << "文件打开失败" << endl;
-		exit(1);
+		cerr << "用户初始化\n";
+		ofstream fmake("user.txt");
+		if (!fmake)
+		{
+			cerr << "初始化失败\n";
+			exit(1);
+		}
+		fmake.close();
+		userInit();
 	}
+	ftouch.close();
+	ifstream fin("user.txt");
 	while (fin.peek() != EOF)
 	{
 		fin >> tu.name >> tu.password >> tu.grade;
 		vuser.push_back(tu);
 	}
 	fin.close();
+}
+void DoUser::userInit()
+{
+	User tu;
+	cout << "请输入初始用户名：";
+	cin >> tu.name;
+	cout << "请输入初始密码：";
+	cin >> tu.password;
+	tu.grade = 0;
+	vuser.push_back(tu);
+	cout << "初始用户创建成功。\n";
+	saveall();
 }
 bool DoUser::checkuser(string tname, string tpw)
 {
