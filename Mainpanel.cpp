@@ -44,7 +44,7 @@ void Mainpanel::welcome()
 	cout << "\t\t*                                                 *" << endl;
 	cout << "\t\t*           欢迎使用书店管理系统1.0               *" << endl;
 	cout << "\t\t*                作者：杜小甫                     *" << endl;
-	cout << "\t\t*                 2013.11.25                      *" << endl;
+	cout << "\t\t*                 2020.06.11                      *" << endl;
 	cout << "\t\t*                                                 *" << endl;
 	cout << "\t\t***************************************************" << endl;
 }
