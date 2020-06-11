@@ -1,5 +1,6 @@
 #include "StdAfx.h"
 #include "DoUser.h"
+#include "md5.h"
 
 DoUser::DoUser(void)
 {
@@ -46,11 +47,13 @@ void DoUser::init()
 }
 void DoUser::userInit()
 {
+	string tempPw;
 	User tu;
 	cout << "请输入初始用户名：";
 	cin >> tu.name;
 	cout << "请输入初始密码：";
-	cin >> tu.password;
+	cin >> tempPw;
+	tu.password = MD5(tempPw).toStr();
 	tu.grade = 0;
 	vuser.push_back(tu);
 	cout << "初始用户创建成功。\n";
@@ -58,6 +61,7 @@ void DoUser::userInit()
 }
 bool DoUser::checkuser(string tname, string tpw)
 {
+	tpw = MD5(tpw).toStr();
 	int i = 0;
 	bool flag = false;
 	while (i < vuser.size())
@@ -77,7 +81,6 @@ bool DoUser::checkuser(string tname, string tpw)
 void DoUser::displayoneself()
 {
 	cout << "您的用户名是：" << thistimename << endl;
-	cout << "您的密码是：" << thistimepassword << endl;
 	cout << "您的等级是：" << thistimeusergrade << endl;
 }
 void DoUser::displayalluser()
@@ -85,17 +88,19 @@ void DoUser::displayalluser()
 	int i = 0;
 	while (i < vuser.size())
 	{
-		cout << "用户名：" << vuser.at(i).name << "\t密码：" << vuser.at(i).password << "\t等级：" << vuser.at(i).grade << endl;
+		cout << "用户名：" << vuser.at(i).name << "\t等级：" << vuser.at(i).grade << endl;
 		i++;
 	}
 }
 void DoUser::insertoneuser()
 {
+	string tempPw;
 	User tu;
 	cout << "请输入新用户名：";
 	cin >> tu.name;
 	cout << "请输入新密码：";
-	cin >> tu.password;
+	cin >> tempPw;
+	tu.password = MD5(tempPw).toStr();
 	cout << "请输入新用户等级：";
 	cin >> tu.grade;
 	vuser.push_back(tu);
@@ -137,7 +142,6 @@ void DoUser::selectoneuser()
 		if (vuser.at(i).name == tname)
 		{
 			cout << "该用户名是：" << vuser.at(i).name << endl;
-			cout << "该用户名的密码是：" << vuser.at(i).password << endl;
 			cout << "该用户名的等级是：" << vuser.at(i).grade << endl;
 			break;
 		}
@@ -162,12 +166,12 @@ void DoUser::modifyoneuser()
 		{
 			cout << "请输入新密码，不超过20个英文字符：";
 			cin >> newpassword;
-			vuser.at(i).password = newpassword;
+			vuser.at(i).password = MD5(newpassword).toStr();
 			if (thistimeusergrade == 0)
 			{
 				if (thistimename == tname)
 				{
-					thistimepassword = newpassword;
+					thistimepassword = MD5(newpassword).toStr();
 				}
 				else
 				{
@@ -178,7 +182,7 @@ void DoUser::modifyoneuser()
 			}
 			else
 			{
-				thistimepassword = newpassword;
+				thistimepassword = MD5(newpassword).toStr();
 			}
 			break;
 		}
@@ -202,8 +206,8 @@ void DoUser::modifypassword()
 		{
 			cout << "请输入新密码，不超过20个英文字符：";
 			cin >> newpassword;
-			vuser.at(i).password = newpassword;
-			thistimepassword = newpassword;
+			vuser.at(i).password = MD5(newpassword).toStr();
+			thistimepassword = MD5(newpassword).toStr();
 			break;
 		}
 		i++;
