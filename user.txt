@@ -1,2 +1,0 @@
-dxf aaa 0
-aaa aaa 1
