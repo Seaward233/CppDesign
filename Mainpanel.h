@@ -19,5 +19,4 @@ public:
 	string password;
 	int usergrade;
 	DoUser mydouser;
-	DoPublishers myDoPublishers;
 };

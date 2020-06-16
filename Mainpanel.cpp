@@ -153,6 +153,7 @@ void Mainpanel::handlewindow(int kind)
 	DoPurchases::init();
 	DoBook::init();
 	DoBase::init();
+	DoPublishers::init();
 	string s;
 	switch (kind)
 	{
@@ -252,19 +253,19 @@ void Mainpanel::handlewindow(int kind)
 				switch (flag)
 				{
 				case 1:
-					myDoPublishers.displayallPublishers();
+					DoPublishers::displayallPublishers();
 					break;
 				case 2:
-					myDoPublishers.modifyonePublishers();
+					DoPublishers::modifyonePublishers();
 					break;
 				case 3:
-					myDoPublishers.insertonePublishers();
+					DoPublishers::insertonePublishers();
 					break;
 				case 4:
-					myDoPublishers.deleteonePublishers();
+					DoPublishers::deleteonePublishers();
 					break;
 				case 5:
-					myDoPublishers.selectonePublishers();
+					DoPublishers::selectonePublishers();
 					break;
 				default:
 					cout << "输入有误，请重试！";
