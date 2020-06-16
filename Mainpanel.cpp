@@ -152,6 +152,7 @@ void Mainpanel::handlewindow(int kind)
 {
 	DoPurchases::init();
 	DoBook::init();
+	DoBase::init();
 	string s;
 	switch (kind)
 	{
@@ -291,19 +292,19 @@ void Mainpanel::handlewindow(int kind)
 				switch (flag)
 				{
 				case 1:
-					myDoBase.displayallBase();
+					DoBase::displayallBase();
 					break;
 				case 2:
-					myDoBase.modifyoneBase();
+					DoBase::modifyoneBase();
 					break;
 				case 3:
-					myDoBase.insertoneBase();
+					DoBase::insertoneBase();
 					break;
 				case 4:
-					myDoBase.deleteoneBase();
+					DoBase::deleteoneBase();
 					break;
 				case 5:
-					myDoBase.selectoneBase();
+					DoBase::selectoneBase();
 					break;
 				default:
 					cout << "输入有误，请重试！";

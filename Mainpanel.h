@@ -20,5 +20,4 @@ public:
 	int usergrade;
 	DoUser mydouser;
 	DoPublishers myDoPublishers;
-	DoBase myDoBase;
 };
