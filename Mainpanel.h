@@ -21,5 +21,4 @@ public:
 	DoUser mydouser;
 	DoPublishers myDoPublishers;
 	DoBase myDoBase;
-	DoPurchases myDoPurchases;
 };

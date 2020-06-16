@@ -42,7 +42,8 @@ void Mainpanel::welcome()
 {
 	cout << "\t\t***************************************************" << endl;
 	cout << "\t\t*                                                 *" << endl;
-	cout << "\t\t*           欢迎使用书店管理系统1.0               *" << endl;
+	cout << "\t\t*           欢迎使用书店管理系统                  *" << endl;
+	cout << "\t\t*             Version:00.01.23                    *" << endl;
 	cout << "\t\t*                 2020.06.11                      *" << endl;
 	cout << "\t\t*                                                 *" << endl;
 	cout << "\t\t***************************************************" << endl;
@@ -59,7 +60,6 @@ void Mainpanel::adminwindow()
 		cout << "\t\t*      4：维护图书资料请按4                       *" << endl;
 		cout << "\t\t*      5：维护书商资料请按5                       *" << endl;
 		cout << "\t\t*      6：维护采购单资料请按6                     *" << endl;
-		cout << "\t\t*      7：维护采购单详情资料请按7                 *" << endl;
 		cout << "\t\t*      8：维护订单资料请按8                       *" << endl;
 		cout << "\t\t*      9：维护订单详情资料请按9                   *" << endl;
 		cout << "\t\t*     10：维护仓库资料请按10                      *" << endl;
@@ -90,9 +90,6 @@ void Mainpanel::adminwindow()
 				break;
 			case 6:
 				handlewindow(6);
-				break;
-			case 7:
-				handlewindow(7);
 				break;
 			case 8:
 				handlewindow(8);
@@ -153,6 +150,8 @@ void Mainpanel::userwindow()
 }
 void Mainpanel::handlewindow(int kind)
 {
+	DoPurchases::init();
+	DoBook::init();
 	string s;
 	switch (kind)
 	{
@@ -224,6 +223,7 @@ void Mainpanel::handlewindow(int kind)
 			}
 			else if (kind == 4)
 			{
+				DoBook::init();
 				switch (flag)
 				{
 				case 1:
@@ -275,7 +275,13 @@ void Mainpanel::handlewindow(int kind)
 				switch (flag)
 				{
 				case 1:
-					myDoPurchases.displayAllPurchases();
+					DoPurchases::displayAllPurchases();
+					break;
+				case 2:
+					DoPurchases::modifyOnePurchases();
+					break;
+				case 3:
+					DoPurchases::newPurchases();
 					break;
 				}
 			}

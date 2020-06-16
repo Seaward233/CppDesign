@@ -3,7 +3,6 @@
 #include "Book.h"
 namespace DoBook
 {
-	//User向量，用来存储磁盘文件的内容
 	void init();				 //初始化，读取磁盘文件，赋值给Book向量
 	void displayallBook();		 //显示所有用户的个人信息
 	void modifyoneBook();		 //修改用户记录

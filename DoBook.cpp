@@ -197,7 +197,7 @@ namespace DoBook
 		{
 			if (iterBook->ISBN == ISBN)
 			{
-				return iterBook->ISBN;
+				return iterBook->name;
 			}
 		}
 		return "invail ISBN";
