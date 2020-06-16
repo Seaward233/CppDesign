@@ -1,13 +1,9 @@
 #pragma once
 #include <vector>
 #include "User.h"
-class DoUser
+namespace DoUser
 {
-public:
-	DoUser(void);
-	~DoUser(void);
-
-	vector<User> vuser;				//User向量，用来存储磁盘文件的内容
+	int passThisTimeUserGrade();
 	void init();					//初始化，读取磁盘文件，赋值给User向量
 	void userInit();				//用户初始化
 	bool checkuser(string, string); //检查用户名和密码
@@ -19,7 +15,4 @@ public:
 	void deleteoneuser();			//删除一条用户记录
 	void selectoneuser();			//查找并显示一条用户记录
 	void saveall();					//存盘，将vuser写入磁盘文件
-	string thistimename;
-	string thistimepassword;
-	int thistimeusergrade;
-};
+} // namespace DoUser

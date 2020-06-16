@@ -12,16 +12,17 @@ Mainpanel::~Mainpanel(void)
 void Mainpanel::mainwindow()
 {
 	welcome();
+	DoUser::init();
 	while (1)
 	{
 		cout << "请输入您的用户名：";
 		cin >> username;
 		cout << "请输入您的密码：";
 		cin >> password;
-		if (mydouser.checkuser(username, password))
+		if (DoUser::checkuser(username, password))
 		{
 			cout << "尊敬的" << username << "，欢迎使用本软件。" << endl;
-			usergrade = mydouser.thistimeusergrade;
+			usergrade = DoUser::passThisTimeUserGrade();
 			break;
 		}
 		else
@@ -74,10 +75,10 @@ void Mainpanel::adminwindow()
 			switch (flag)
 			{
 			case 1:
-				mydouser.displayoneself();
+				DoUser::displayoneself();
 				break;
 			case 2:
-				mydouser.modifypassword();
+				DoUser::modifypassword();
 				break;
 			case 3:
 				handlewindow(3);
@@ -129,10 +130,10 @@ void Mainpanel::userwindow()
 			switch (flag)
 			{
 			case 1:
-				mydouser.displayoneself();
+				DoUser::displayoneself();
 				break;
 			case 2:
-				mydouser.modifypassword();
+				DoUser::modifypassword();
 				break;
 			case 3:
 				cout << "查看图书信息" << endl;
@@ -204,19 +205,19 @@ void Mainpanel::handlewindow(int kind)
 				switch (flag)
 				{
 				case 1:
-					mydouser.displayalluser();
+					DoUser::displayalluser();
 					break;
 				case 2:
-					mydouser.modifyoneuser();
+					DoUser::modifyoneuser();
 					break;
 				case 3:
-					mydouser.insertoneuser();
+					DoUser::insertoneuser();
 					break;
 				case 4:
-					mydouser.deleteoneuser();
+					DoUser::deleteoneuser();
 					break;
 				case 5:
-					mydouser.selectoneuser();
+					DoUser::selectoneuser();
 					break;
 				default:
 					cout << "输入有误，请重试！";
