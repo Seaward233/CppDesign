@@ -227,19 +227,19 @@ void Mainpanel::handlewindow(int kind)
 				switch (flag)
 				{
 				case 1:
-					mydoBook.displayallBook();
+					DoBook::displayallBook();
 					break;
 				case 2:
-					mydoBook.modifyoneBook();
+					DoBook::modifyoneBook();
 					break;
 				case 3:
-					mydoBook.insertoneBook();
+					DoBook::insertoneBook();
 					break;
 				case 4:
-					mydoBook.deleteoneBookByISBN();
+					DoBook::deleteoneBookByISBN();
 					break;
 				case 5:
-					mydoBook.selectoneBookByAWord();
+					DoBook::selectoneBookByAWord();
 					break;
 				default:
 					cout << "输入有误，请重试！";
@@ -270,6 +270,16 @@ void Mainpanel::handlewindow(int kind)
 					break;
 				}
 			}
+			else if (kind == 6)
+			{
+				switch (flag)
+				{
+				case 1:
+					myDoPurchases.displayAllPurchases();
+					break;
+				}
+			}
+
 			else if (kind == 10)
 			{
 				switch (flag)

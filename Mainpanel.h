@@ -4,6 +4,7 @@
 #include "DoBook.h"
 #include "DoPublishers.h"
 #include "DoBase.h"
+#include "DoPurchases.h"
 class Mainpanel
 {
 public:
@@ -18,7 +19,7 @@ public:
 	string password;
 	int usergrade;
 	DoUser mydouser;
-	DoBook mydoBook;
 	DoPublishers myDoPublishers;
 	DoBase myDoBase;
+	DoPurchases myDoPurchases;
 };
