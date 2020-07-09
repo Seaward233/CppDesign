@@ -85,4 +85,33 @@ namespace DoPurchases
         cout << "采购单新增成功\n";
         return;
     }
+    void deletOnePurchases()
+    {
+        unsigned int tid;
+        cout << "请输入希望删除的采购单ID：";
+        cin >> tid;
+        for (vector<Purchases>::iterator iterPurchases = vPurchases.begin(); iterPurchases != vPurchases.end(); iterPurchases++)
+        {
+            if (iterPurchases->id == tid)
+            {
+                char tin;
+                cout << "请确认删除此采购单（Y/N）\n";
+                cout << "ID：" << iterPurchases->id << "\t书名：" << DoBook::ISBNToName(iterPurchases->ISBN) << "\t优先级：" << iterPurchases->priority << "\t数量：" << iterPurchases->quantity << endl;
+                cin >> tin;
+                if (tin == 'Y')
+                {
+                    vPurchases.erase(iterPurchases);
+                    cout << "确认删除\n";
+                    return;
+                }
+                else
+                {
+                    cout << "取消删除\n";
+                    return;
+                }
+            }
+        }
+        cerr << "找不到指定ID\n";
+        return;
+    }
 } // namespace DoPurchases

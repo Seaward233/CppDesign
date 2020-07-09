@@ -286,6 +286,9 @@ void Mainpanel::handlewindow(int kind)
 				case 3:
 					DoPurchases::newPurchases();
 					break;
+				case 4:
+					DoPurchases::deletOnePurchases();
+					break;
 				}
 			}
 
